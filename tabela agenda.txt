@@ -1,0 +1,17 @@
+create table professor_telefone (
+professor_fone_id int (10) not null auto_increment,
+matricula int (5) not null,
+numero varchar (15) not null,
+constraint pk_professor_telefone primary key (professor_fone_id),
+constraint fk_pt_matricula foreign key (codigo_curso) references professor (matricula),
+constraint uk_pt_mat_tel unique key (matricula,numero)
+);
+create table curso_professor (
+curso_prof_id int (10) not null auto_increment,
+codigo_curso int (3) not null,
+matricula_prof int (5) not null,
+constraint pk_curso_professor primary key (curso_ptof_id),
+constraint fk_cp_cod_curso foreign key (codigo_curso) references cursos (codigo),
+constraint fk_cp_mat_prof foreign key (matricula_prof) references professor (matricula),
+constraint uk_cp_cur_mat unique key (curso_codigo,matricula_prof)
+);
